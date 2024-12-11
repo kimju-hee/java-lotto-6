@@ -17,7 +17,7 @@ public class LottoController {
     public static int totalPrice;
     public static double answer;
 
-    List<List<Integer>> realLotto = new ArrayList<>();
+    public List<List<Integer>> realLotto = new ArrayList<>();
 
     OutputView outputView = new OutputView();
     InputView inputView = new InputView();
