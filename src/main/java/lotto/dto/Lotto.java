@@ -1,9 +1,13 @@
 package lotto.dto;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
+import lotto.controller.LottoController;
 
 public class Lotto {
     private final List<Integer> numbers;
+    private final LottoController lottoController = new LottoController();
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
@@ -15,6 +19,4 @@ public class Lotto {
             throw new IllegalArgumentException();
         }
     }
-
-    // TODO: 추가 기능 구현
 }
