@@ -14,6 +14,8 @@ public class LottoController {
     public static List<Integer> winningNumber = new ArrayList<>();
     public static int bonusNumber;
     public static int[] result = new int[8];
+    public static int totalPrice;
+    public static double answer;
 
     List<List<Integer>> realLotto = new ArrayList<>();
 
@@ -30,6 +32,7 @@ public class LottoController {
         printBonusNumber();
         calculatePrice();
         printResult();
+        calculateTotalPrice();
     }
 
     public void purchaseLotto() {
@@ -101,5 +104,12 @@ public class LottoController {
 
     public void printResult() {
         outputView.printLottoResult(result);
+    }
+
+    public void calculateTotalPrice() {
+        int three = result[3], four = result[4], five = result[5], bonus = result[7], six = result[6];
+        totalPrice += (5000 * three + 50000 * four + 1500000 * five + 30000000 * bonus + 2000000000 * six);
+        answer = Double.valueOf(totalPrice) / Double.valueOf(purchasePrice) * 100;
+        outputView.printTotalResult(String.format("%.1f", answer));
     }
 }
