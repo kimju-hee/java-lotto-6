@@ -22,6 +22,7 @@ public class LottoController {
         purchaseLotto();
         setLottoCount();
         issuanceLotto();
+        printIssuedLottoNumber();
     }
 
     public void purchaseLotto() {
@@ -47,5 +48,12 @@ public class LottoController {
 
     public List<List<Integer>> getRealLotto() {
         return realLotto;
+    }
+
+    public void printIssuedLottoNumber() {
+        outputView.printIssuedText(lottoCount);
+        for (int i = 0; i < lottoCount; i++) {
+            outputView.printIssuedLotto(realLotto.get(i));
+        }
     }
 }
