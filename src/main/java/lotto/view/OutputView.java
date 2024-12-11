@@ -24,4 +24,16 @@ public class OutputView {
         System.out.println();
         System.out.println("보너스 번호를 입력해 주세요.");
     }
+
+    public void printLottoResult(int[] result) {
+        System.out.println();
+        System.out.println("당첨 통계");
+        System.out.println("---");
+        int three = result[3], four = result[4], five = result[5], bonus = result[7], six = result[6];
+        System.out.println("3개 일치 (5,000원) - " + three + "개");
+        System.out.println("4개 일치 (50,000원) - " + four + "개");
+        System.out.println("5개 일치 (1,500,000원) - " + five + "개");
+        System.out.println("5개 일치, 보너스 볼 일치 (30,000,000원) - " + bonus + "개");
+        System.out.println("6개 일치 (2,000,000,000원) - " + six + "개");
+    }
 }

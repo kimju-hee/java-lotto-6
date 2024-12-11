@@ -13,6 +13,7 @@ public class LottoController {
     public static int lottoCount;
     public static List<Integer> winningNumber = new ArrayList<>();
     public static int bonusNumber;
+    public static int[] result = new int[8];
 
     List<List<Integer>> realLotto = new ArrayList<>();
 
@@ -27,6 +28,8 @@ public class LottoController {
         printIssuedLottoNumber();
         printWinningNumber();
         printBonusNumber();
+        calculatePrice();
+        printResult();
     }
 
     public void purchaseLotto() {
@@ -77,5 +80,26 @@ public class LottoController {
         outputView.printBonusNumberText();
         String num = inputHandler.receiveValidBonusNumber();
         bonusNumber = Integer.parseInt(num);
+    }
+
+    public int[] calculatePrice() {
+        for (List<Integer> lotto : realLotto) {
+            int count = 0;
+            for (int win : winningNumber) {
+                if (lotto.contains(win)) {
+                    count += 1;
+                }
+            }
+            if (count == 5) {
+                if (lotto.contains(bonusNumber)) {
+                    count += 2;
+                }
+            }
+            result[count] += 1;
+        } return result;
+    }
+
+    public void printResult() {
+        outputView.printLottoResult(result);
     }
 }
