@@ -11,7 +11,8 @@ import lotto.view.handler.InputHandler;
 public class LottoController {
     public static int purchasePrice;
     public static int lottoCount;
-    public static List<Integer> winningNumber;
+    public static List<Integer> winningNumber = new ArrayList<>();
+    public static int bonusNumber;
 
     List<List<Integer>> realLotto = new ArrayList<>();
 
@@ -25,6 +26,7 @@ public class LottoController {
         issuanceLotto();
         printIssuedLottoNumber();
         printWinningNumber();
+        printBonusNumber();
     }
 
     public void purchaseLotto() {
@@ -65,5 +67,15 @@ public class LottoController {
         for (String num :winNumber) {
             winningNumber.add(Integer.parseInt(num));
         }
+    }
+
+    public List<Integer> getWinningNumber() {
+        return winningNumber;
+    }
+
+    public void printBonusNumber() {
+        outputView.printBonusNumberText();
+        String num = inputHandler.receiveValidBonusNumber();
+        bonusNumber = Integer.parseInt(num);
     }
 }

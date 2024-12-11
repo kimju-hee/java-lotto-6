@@ -19,6 +19,10 @@ public class InputHandler {
         return receiveValidatedInput(inputView::winningInput);
     }
 
+    public String receiveValidBonusNumber() {
+        return receiveValidatedInput(inputView::BonusInput);
+    }
+
     private <T> T receiveValidatedInput(Supplier<T> inputView) {
         while (true) {
             try {
