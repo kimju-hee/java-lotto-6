@@ -15,6 +15,10 @@ public class InputHandler {
         return receiveValidatedInput(inputView::priceInput);
     }
 
+    public String receiveValidWinningNumber() {
+        return receiveValidatedInput(inputView::winningInput);
+    }
+
     private <T> T receiveValidatedInput(Supplier<T> inputView) {
         while (true) {
             try {
